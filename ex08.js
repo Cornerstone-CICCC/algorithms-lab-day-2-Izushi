@@ -3,4 +3,17 @@
 // Example: groupByAge([{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }, { name: "Charlie", age: 30 }])
 // should return { 25: [{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }], 30: [{ name: "Charlie", age: 30 }] }.
 
+function groupByAge(arr) {
+  let groupedObj = {};
+  let objArr = [];
+  arr.forEach(obj => {
+    if (obj.age in groupedObj) {
+      groupedObj[obj.age].push(obj);
+    } else {
+      groupedObj[obj.age] = [obj];
+    }
+  });
+  return groupedObj;
+}
+
 console.log(groupByAge([{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }, { name: "Charlie", age: 30 }])); // Expected output: { 25: [{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }], 30: [{ name: "Charlie", age: 30 }] }
